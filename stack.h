@@ -6,6 +6,12 @@
 # ifndef STACK_H
 # define STACK_H
 
+/**
+ * Índice del último elemento del stack
+ */
+extern int top;
+
+
  /**
  * Añade un elemento al stack
  */
