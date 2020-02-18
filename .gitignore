@@ -2,4 +2,5 @@
 /latex/
 /bin/
 /obj/
+/reports/
 *.o

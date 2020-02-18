@@ -15,6 +15,8 @@ clean-doc:
 	rm -rf html latex
 doc: clean-doc
 	doxygen
-
 cppcheck: 
-	cppcheck --enable=all --inconclusive --error-exitcode=1 *.c
+	cppcheck --enable=all --inconclusive *.c 
+
+cppcheck-xml: 
+	cppcheck --enable=all --inconclusive --xml --xml-version=2 *.c 2> reports/cppcheck/report.xml
