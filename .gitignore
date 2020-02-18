@@ -3,4 +3,5 @@
 /bin/
 /obj/
 /reports/
+/tests/build/
 *.o
