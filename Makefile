@@ -11,12 +11,15 @@ armstrong.o: armstrong.c
 
 objects: main.o stack.o armstrong.o
 
-clean: clean-doc clean-obj clean-bin
+clean: clean-doc clean-obj clean-bin clean-reports
 
+clean-reports:
+	rm -rf reports/tests/*
 clean-obj:
 	rm -f obj/*
 clean-bin:
 	rm -f bin/*
+	rm -rf tests/build/*
 clean-doc:
 	rm -rf html latex
 doc: clean-doc
@@ -30,6 +33,6 @@ cppcheck-xml:
 tests: armstrong.o stack.o
 	gcc tests/armstrong/is_armstrong_number.c obj/armstrong.o obj/stack.o -lm -lcmocka -o tests/build/is_armstrong_number
 
-tests-xml: armstrong.o stack.o
+tests-xml: clean armstrong.o stack.o
 	gcc tests/armstrong/is_armstrong_number.c obj/armstrong.o obj/stack.o -lm -lcmocka -o tests/build/is_armstrong_number
-	CMOCKA_XML_FILE=reports/tests/%g.xml CMOCKA_MESSAGE_OUTPUT=xml ./tests/build/is_armstrong_number
+	CMOCKA_XML_FILE=reports/tests/%g.xml CMOCKA_MESSAGE_OUTPUT=xml ./tests/build/is_armstrong_number || true
