@@ -8,25 +8,9 @@
 
 # include <stdio.h>
 # include <math.h>
+# include "stack.h"
 
-//! Número máximo de elementos del stack
-#define max 10
-
-//! Índice de la último elemento del stack
-int top=-1;
-
-//! El stack...
-int stack[max];
-
-/**
- * Añade un elemento al stack
- */
-void push(int);
-
-/**
- * Saca el último elemento del stack
- */
-int pop();
+extern int top;
 
 /**
  * Verifica si un número es de Armstrong o no
@@ -74,19 +58,4 @@ int is_armstrong_number(int numb){
 		return 0;
 }
 
-void push(int m){   
-	top++;   
-	stack[top]=m;
-}
 
-int pop(){   
-	if(top==-1)
-		return(top);   
-	else   
-	{      
-		int j;   
-		j=stack[top];      
-		top--;      
-		return(j);   
-	}
-}

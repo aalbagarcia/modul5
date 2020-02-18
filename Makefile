@@ -1,9 +1,13 @@
 all: bin doc
 
-bin: main.o 
-	gcc obj/main.o -Wall -o bin/is_armstrong_number -lm 
+bin: objects
+	gcc obj/main.o obj/stack.o -Wall -o bin/is_armstrong_number -lm 
 main.o : main.c
 	gcc -c main.c -pedantic -Wall -o obj/main.o
+stack.o: stack.c
+	gcc -c stack.c -pedantic -Wall -o obj/stack.o
+
+objects: main.o stack.o
 
 clean: clean-doc clean-obj clean-bin
 
