@@ -67,5 +67,9 @@ pipeline {
         always {
             chuckNorris()
         }
+
+        success {
+            archiveArtifacts artifacts: 'bin/*', fingerprint: true, onlyIfSuccessful: true
+        }
     }
 }
