@@ -14,6 +14,15 @@ pipeline {
         stage('Doxygen') { 
             steps {
                 sh 'make doc'
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'html',
+                    reportFiles: 'index.html',
+                    reportName: 'Doxygen documentation'
+                  ]  
+
             }
         }
 	stage('Tests') {
@@ -27,14 +36,6 @@ pipeline {
       always {
         publishCppcheck pattern: 'reports/cppcheck/report.xml'
         junit 'reports/tests/*.xml' 
-        publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'html',
-            reportFiles: 'index.html',
-            reportName: 'Doxygen documentation'
-          ]  
       }
     }
 }
