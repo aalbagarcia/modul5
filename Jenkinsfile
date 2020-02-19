@@ -3,8 +3,19 @@ pipeline {
     stages {
         stage('documentación') {
             steps {
-                echo "A documentar!"
+                sh 'make doc'
             } 
+            post {
+                always {
+                    publishHTML([allowMissing: false, 
+                                 alwaysLinkToLastBuild: true, 
+                                 keepAll: true, 
+                                 reportDir: 'html', 
+                                 reportFiles: 'index.html', 
+                                 reportName: 'Doxygen Documentación', 
+                                 reportTitles: ''])
+                }
+            }
         }
     }
 }
