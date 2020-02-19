@@ -9,7 +9,9 @@
 # include <stdio.h>
 # include "armstrong.h"
 
-
+/**
+ * Esta es la función principal de las principales
+ */
 int main(){   
 	int n;   
 	printf("Introduce un número entero");   
