@@ -12,7 +12,7 @@
 /**
  * Esta es la función principal de las principales
  */
-int main(){   
+void main(){   
 	int n;   
 	printf("Introduce un número entero");   
 	scanf("%d",&n);   
