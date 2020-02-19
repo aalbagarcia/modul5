@@ -37,6 +37,19 @@ pipeline {
                 }
             }
         }
+
+        stage('Tests') {
+            steps {
+                sh 'make tests'
+            }
+
+            post {
+                always {
+                    junit 'reports/tests/*.xml'
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'make bin'
