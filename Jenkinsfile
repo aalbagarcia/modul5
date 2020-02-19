@@ -37,6 +37,18 @@ pipeline {
                 }
             }
         }
+        stage('Build') {
+            steps {
+                sh 'make bin'
+            }
+
+            post {
+                always {
+                    recordIssues qualityGates: [[threshold: 1, type: 'TOTAL', unstable: false]], 
+                                 tools: [gcc()]
+                }
+            }
+        }
     }
     post {
         always {
