@@ -10,9 +10,6 @@
 # include "armstrong.h"
 
 
-/**
- * La función principal que es muy principal.
- */
 int main(){   
 	int n;   
 	printf("Introduce un número entero");   
