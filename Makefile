@@ -11,7 +11,7 @@ armstrong.o: armstrong.c
 
 objects: main.o stack.o armstrong.o
 
-clean: clean-doc clean-obj clean-bin clean-reports
+clean: clean-obj clean-bin clean-reports
 
 clean-reports:
 	rm -rf reports/tests/*
